@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Blog on pontaro</title>
+        <link>http://localhost:1313/categories/blog/</link>
+        <description>Recent content in Blog on pontaro</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Welcome to My Blog</title>
+            <link>http://localhost:1313/b/welcome/</link>
+            <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+            <guid>http://localhost:1313/b/welcome/</guid>
+            <description>&lt;p&gt;Hello and welcome to my blog! This is a sample post to get things started.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-this-blog-is-about&#34;&gt;What this blog is about&#xA;&lt;/h2&gt;&lt;p&gt;Write whatever you want here. This post was created as a placeholder — you can edit or delete it from the admin panel.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-to-write-new-posts&#34;&gt;How to write new posts&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;yoursite.com/admin/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Log in with your email&lt;/li&gt;&#xA;&lt;li&gt;Click &amp;ldquo;Blog Posts&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;Click &amp;ldquo;New Blog Posts&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;Write your post using the rich text editor&lt;/li&gt;&#xA;&lt;li&gt;Click &amp;ldquo;Publish&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;That&amp;rsquo;s it! Your new post will appear on the site within a minute or two.&lt;/p&gt;</description>
+        </item></channel>
+</rss>

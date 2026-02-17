@@ -1,0 +1,61 @@
+{{ define "main" }}
+    <!-- Blog Section Header -->
+    <header class="blog-section-header">
+        <h1 class="blog-section-title">Blog</h1>
+        <p class="blog-section-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+    </header>
+
+    <!-- Blog Cards Grid -->
+    <div class="blog-list">
+        {{ $paginator := .Paginate .Pages }}
+        {{ range $paginator.Pages }}
+            {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources) -}}
+            <article class="blog-card">
+                {{ if $image }}
+                    <a href="{{ .RelPermalink }}">
+                        <img class="blog-card__image"
+                             src="{{ $image.Permalink }}"
+                             width="{{ $image.Width }}"
+                             height="{{ $image.Height }}"
+                             loading="lazy"
+                             alt="{{ .Title }}">
+                    </a>
+                {{ else }}
+                    <a href="{{ .RelPermalink }}">
+                        <div class="blog-card__image-placeholder">
+                            ✦
+                        </div>
+                    </a>
+                {{ end }}
+
+                <div class="blog-card__content">
+                    <h2 class="blog-card__title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                    <div class="blog-card__meta">
+                        <time datetime='{{ .Date.Format "2006-01-02" }}'>
+                            {{ .Date.Format "January 2, 2006" }}
+                        </time>
+                        {{ if .Params.readingTime | default .Site.Params.article.readingTime }}
+                            · {{ .ReadingTime }} min read
+                        {{ end }}
+                    </div>
+                    {{ with .Description }}
+                        <p class="blog-card__description">{{ . }}</p>
+                    {{ else }}
+                        {{ with .Summary }}
+                            <p class="blog-card__description">{{ . | plainify | truncate 120 }}</p>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </article>
+        {{ end }}
+    </div>
+
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

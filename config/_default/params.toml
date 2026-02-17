@@ -1,43 +1,41 @@
-mainSections   = ["post"]
+mainSections = ["blog"]
 rssFullContent = true
 
 [footer]
-    since = 2026
+since = 2026
 
 [dateFormat]
-    published   = ":date_full"
-    lastUpdated = ":date_full"
+published = ":date_full"
+lastUpdated = ":date_full"
 
 [sidebar]
-    emoji    = "📝"
-    subtitle = "Welcome to my blog"
+emoji = ""
+subtitle = "thoughts & music"
 
 [article]
-    headingAnchor = false
-    math          = false
-    toc           = true
-    readingTime   = true
-    [article.license]
-        enabled = false
+headingAnchor = false
+math = false
+toc = true
+readingTime = true
+[article.license]
+enabled = false
 
 [widgets]
-    homepage = [
-        { type = "search" },
-        { type = "archives", params = { limit = 5 } },
-        { type = "categories", params = { limit = 10 } },
-        { type = "tag-cloud", params = { limit = 10 } },
-    ]
-    page = [{ type = "toc" }]
+homepage = [
+    { type = "categories", params = { limit = 10 } },
+    { type = "tag-cloud", params = { limit = 10 } },
+]
+page = [{ type = "toc" }]
 
 [colorScheme]
-    toggle  = true
-    default = "auto"
+toggle = false
+default = "light"
 
 [imageProcessing.cover]
-    enabled = true
+enabled = true
 
 [imageProcessing.content]
-    enabled = true
+enabled = true
 
 [comments]
-    enabled = false
+enabled = false

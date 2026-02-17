@@ -6,9 +6,10 @@
         icon = "home"
         newTab = false
 
-[[social]]
-    identifier = "github"
-    name       = "GitHub"
-    url        = "https://github.com"
-    [social.params]
-        icon = "brand-github"
+[[main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/blog/"
+    [main.params]
+        icon = "archives"
+        newTab = false

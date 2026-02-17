@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <!-- Custom Homepage Intro -->
+    <section class="homepage-intro">
+        <h1 class="greeting">Hello, I'm <span class="name">Pon</span></h1>
+        <p class="description">
+            Welcome to my little space on the web. I write about things I find interesting,
+            share thoughts, and document my journey. Thanks for stopping by.
+        </p>
+        <a href="/blog/" class="cta-link">browse posts →</a>
+    </section>
+
+    <!-- Recent Posts Section -->
+    <section class="recent-posts-section">
+        <h2 class="section-title">recent posts</h2>
+        {{ $pages := where .Site.RegularPages "Section" "blog" }}
+        {{ range first 5 $pages }}
+        <div class="recent-post-item">
+            <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+            <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        {{ end }}
+    </section>
+
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

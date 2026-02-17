@@ -1,14 +1,14 @@
 baseURL      = "https://example.com/"  # Netlify will override this, update with your domain
 languageCode = "en-us"
-title        = "My Blog"
+title        = "pontaro"
 theme        = "hugo-theme-stack"
 
 defaultContentLanguage = "en"
-hasCJKLanguage         = false
+hasCJKLanguage         = true
 
 [pagination]
     pagerSize = 5
 
 [permalinks]
-    post = "/p/:slug/"
+    blog = "/b/:slug/"
     page = "/:slug/"

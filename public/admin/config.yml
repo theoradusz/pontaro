@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: theoradusz/pontaro
+  branch: main
+  base_url: https://auth.pontaro.top
+
+# Media files stored in static/uploads
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+# Editorial workflow: draft/review/publish states
+publish_mode: editorial_workflow
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/post"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
+      - { label: "Slug", name: "slug", widget: "string", required: false }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          required: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Featured Image",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

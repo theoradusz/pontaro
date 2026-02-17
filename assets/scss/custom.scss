@@ -1,0 +1,607 @@
+// Custom Theme: Pastel Sky Blue - Colorful & Readable
+// Using Zen Kaku Gothic New for a warm, personal feel
+
+// =============================================================================
+// COLOR PALETTE - Colorful & High Contrast
+// =============================================================================
+
+:root {
+    // Backgrounds - warm, creamy whites
+    --body-background: #F8FBFD;
+    --card-background: #FFFFFF;
+
+    // Accent colors - vivid sky blue (visible links)
+    --accent-color: #4A90B8;
+    --accent-color-darker: #357A9E;
+
+    // Heading color - colorful headings
+    --heading-color: #4A8EB5;
+
+    // Text colors - stronger contrast for readability
+    --body-text-color: #3D4852;
+    --card-text-color-main: #2D3748;
+    --card-text-color-secondary: #718096;
+
+    // Code & Blockquote - subtle tints
+    --blockquote-background-color: #F0F6FA;
+    --code-background-color: #F5F8FA;
+    --code-text-color: #4A90B8;
+
+    // Borders - soft and understated
+    --table-border-color: #E8EEF2;
+    --card-separator-color: #E8EEF2;
+
+    // Flat design: no shadows
+    --shadow-l1: none;
+    --shadow-l2: none;
+    --shadow-l3: none;
+    --shadow-l4: none;
+}
+
+// =============================================================================
+// TYPOGRAPHY - Bigger & More Readable
+// =============================================================================
+
+:root {
+    --sys-font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont,
+                       'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+                       'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --code-font-family: 'Source Code Pro', Menlo, Monaco, Consolas,
+                        'Courier New', monospace;
+    --article-font-family: var(--sys-font-family);
+    --base-font-size: 17px;
+}
+
+body {
+    font-family: var(--sys-font-family);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    font-size: var(--base-font-size);
+}
+
+// Headings - colorful
+h1, h2, h3, h4, h5, h6,
+.article-title,
+.section-title {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+// =============================================================================
+// SIDEBAR STYLING - Bigger Pontaro Title
+// =============================================================================
+
+.sidebar {
+    .site-name {
+        font-size: 1.75rem !important;
+        font-weight: 600;
+        color: var(--heading-color);
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .site-description {
+        font-weight: 400;
+        font-size: 0.95rem;
+        color: var(--card-text-color-secondary);
+    }
+}
+
+// =============================================================================
+// HOMEPAGE INTRO SECTION - Warm & Inviting
+// =============================================================================
+
+.homepage-intro {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+    background: var(--card-background);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+
+    .greeting {
+        font-size: 2.75rem;
+        font-weight: 400;
+        color: var(--card-text-color-main);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+
+        .name {
+            color: var(--heading-color);
+            font-weight: 500;
+        }
+    }
+
+    .description {
+        font-size: 1.15rem;
+        color: var(--card-text-color-secondary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    .cta-link {
+        display: inline-block;
+        color: var(--accent-color);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 500;
+        font-size: 1.05rem;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--accent-color-darker);
+        }
+    }
+}
+
+// =============================================================================
+// RECENT POSTS SECTION
+// =============================================================================
+
+.recent-posts-section {
+    margin-bottom: 2rem;
+
+    .section-title {
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: var(--heading-color);
+        margin-bottom: 1.25rem;
+        text-transform: lowercase;
+        letter-spacing: 0.05em;
+    }
+}
+
+.recent-post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--table-border-color);
+
+    &:first-child {
+        border-top: 1px solid var(--table-border-color);
+    }
+
+    .post-title {
+        color: var(--card-text-color-main);
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 1.05rem;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+
+    .post-date {
+        color: var(--card-text-color-secondary);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        margin-left: 1rem;
+    }
+}
+
+// =============================================================================
+// MARKDOWN CONTENT STYLING
+// =============================================================================
+
+.article-content {
+    font-weight: 400;
+    line-height: 1.85;
+    font-size: 1.05rem;
+
+    // Headings - COLORFUL
+    h1, h2, h3 {
+        font-weight: 600;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+    }
+
+    h4, h5, h6 {
+        font-weight: 500;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        color: var(--card-text-color-main);
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.35rem; }
+    h4 { font-size: 1.15rem; }
+    h5 { font-size: 1.05rem; }
+    h6 { font-size: 1rem; color: var(--card-text-color-secondary); }
+
+    // Paragraphs
+    p {
+        margin-bottom: 1.35rem;
+    }
+
+    // Links - VISIBLE with underline
+    a {
+        color: var(--accent-color);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 1px;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--accent-color-darker);
+        }
+    }
+
+    // Blockquotes - TOP ACCENT instead of left border
+    blockquote {
+        background: var(--blockquote-background-color);
+        border-left: none;
+        border-top: 3px solid var(--accent-color);
+        padding: 1.25rem 1.5rem;
+        margin: 1.75rem 0;
+        border-radius: 0 0 4px 4px;
+        font-style: italic;
+        color: var(--card-text-color-main);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        // Nested blockquotes
+        blockquote {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            border-top-color: var(--accent-color-darker);
+        }
+    }
+
+    // Inline code
+    code:not([class*="language-"]) {
+        background: var(--code-background-color);
+        color: var(--code-text-color);
+        padding: 0.2em 0.45em;
+        border-radius: 3px;
+        font-family: var(--code-font-family);
+        font-size: 0.9em;
+        font-weight: 500;
+    }
+
+    // Code blocks
+    pre {
+        background: var(--code-background-color);
+        border: 1px solid var(--table-border-color);
+        border-radius: 4px;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1.75rem 0;
+
+        code {
+            background: none;
+            color: var(--card-text-color-main);
+            padding: 0;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+
+    // Tables
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.75rem 0;
+        font-size: 0.95rem;
+
+        th, td {
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--table-border-color);
+            text-align: left;
+        }
+
+        th {
+            background: var(--code-background-color);
+            font-weight: 500;
+            color: var(--card-text-color-main);
+        }
+
+        tr:nth-child(even) {
+            background: var(--body-background);
+        }
+    }
+
+    // Lists
+    ul, ol {
+        margin: 1.25rem 0;
+        padding-left: 1.75rem;
+
+        li {
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
+
+            &::marker {
+                color: var(--accent-color);
+            }
+        }
+    }
+
+    // Nested lists
+    ul ul, ol ol, ul ol, ol ul {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+    }
+
+    // Horizontal rules
+    hr {
+        border: none;
+        border-top: 1px solid var(--table-border-color);
+        margin: 2.5rem 0;
+    }
+
+    // Images - flat, no shadow
+    img {
+        border-radius: 4px;
+        border: 1px solid var(--table-border-color);
+    }
+
+    // Bold and italic
+    strong {
+        font-weight: 600;
+        color: var(--card-text-color-main);
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    // Strikethrough
+    del {
+        color: var(--card-text-color-secondary);
+    }
+}
+
+// =============================================================================
+// TABLE OF CONTENTS - Clean, No Bullets
+// =============================================================================
+
+.widget--toc {
+    nav#TableOfContents {
+        ul {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 0;
+
+            li {
+                margin-bottom: 0.5rem;
+                padding-left: 0;
+
+                a {
+                    color: var(--card-text-color-main);
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+                }
+
+                // Nested levels - indented but no bullets
+                ul {
+                    margin-top: 0.4rem;
+                    padding-left: 1rem !important;
+
+                    li {
+                        margin-bottom: 0.35rem;
+
+                        a {
+                            font-size: 0.85rem;
+                            color: var(--card-text-color-secondary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Widget styling
+.widget {
+    &--categories,
+    &--tag-cloud {
+        .widget-title {
+            font-weight: 500;
+            color: var(--heading-color);
+        }
+    }
+}
+
+// =============================================================================
+// HIDE FOOTER ATTRIBUTION
+// =============================================================================
+
+.site-footer .powerby {
+    display: none !important;
+}
+
+// =============================================================================
+// BLOG LIST PAGE - Elegant Card Layout
+// =============================================================================
+
+.blog-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.blog-card {
+    background: var(--card-background);
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-color: var(--accent-color);
+
+        .blog-card__title {
+            color: var(--accent-color);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__image-placeholder {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: linear-gradient(135deg, var(--code-background-color) 0%, var(--blockquote-background-color) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-color);
+        font-size: 2.5rem;
+    }
+
+    &__content {
+        padding: 1.5rem;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--card-text-color-main);
+        margin-bottom: 0.5rem;
+        transition: color 0.2s ease;
+        line-height: 1.4;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    &__meta {
+        font-size: 0.875rem;
+        color: var(--card-text-color-secondary);
+        margin-bottom: 0.75rem;
+    }
+
+    &__description {
+        font-size: 0.95rem;
+        color: var(--card-text-color-secondary);
+        line-height: 1.6;
+    }
+}
+
+// Section header for blog list
+.blog-section-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+
+    .blog-section-title {
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .blog-section-count {
+        font-size: 0.95rem;
+        color: var(--card-text-color-secondary);
+    }
+}
+
+// =============================================================================
+// CARDS & ARTICLE LIST - Flat design
+// =============================================================================
+
+.article-list {
+    article {
+        .article-title {
+            font-weight: 500;
+            color: var(--card-text-color-main);
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+
+        .article-subtitle {
+            font-weight: 400;
+        }
+    }
+}
+
+// Remove any card shadows from theme
+.article-list--tile article,
+.widget,
+.card-widget {
+    box-shadow: none !important;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+// Article list compact (theme default) styling
+.article-list--compact {
+    article {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--table-border-color);
+
+        &:first-child {
+            border-top: 1px solid var(--table-border-color);
+        }
+
+        .article-title {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: 768px) {
+    .homepage-intro {
+        padding: 3rem 1.5rem;
+
+        .greeting {
+            font-size: 1.75rem;
+        }
+
+        .description {
+            font-size: 1rem;
+        }
+    }
+
+    .recent-post-item {
+        flex-direction: column;
+
+        .post-date {
+            margin-left: 0;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .blog-card__content {
+        padding: 1.25rem;
+    }
+
+    .blog-card__title {
+        font-size: 1.1rem;
+    }
+}
