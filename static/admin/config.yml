@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: theoraduz/pontaro
+  repo: theoradusz/pontaro
   branch: main
   base_url: https://auth.pontaro.top
 
