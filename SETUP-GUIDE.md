@@ -1,24 +1,29 @@
-# Hugo + Decap CMS + Netlify: Setup Guide
+# Hugo + Stack Theme + Decap CMS + Netlify: Setup Guide
 
 ## What you'll get
-- A fast static blog hosted for free on Netlify
-- A web-based admin panel at `yoursite.netlify.app/admin/` where the blogger can write posts with a rich text editor (like WordPress)
+- A fast, card-style blog using the [Stack theme](https://stack.jimmycai.com/) hosted for free on Netlify
+- A web-based admin panel at `yoursite.com/admin/` where the blogger can write posts with a rich text editor (like WordPress)
 - The blogger never touches code or Git — they just log in and write
+- Dark/light mode, search, archives, tags, and categories built in
 
 ---
 
 ## Step 1: Push to GitHub
 
-Create a new repository on GitHub (e.g., `my-blog`), then push this project:
+Create a **private** repository on GitHub (e.g., `my-blog`), then push this project:
 
 ```bash
 cd my-blog
 git branch -m master main
 git add -A
-git commit -m "Initial commit: Hugo + Decap CMS"
+git commit -m "Initial commit: Hugo Stack + Decap CMS"
 git remote add origin https://github.com/YOUR_USERNAME/my-blog.git
 git push -u origin main
 ```
+
+> **Note:** The theme is included as a git submodule. If you cloned from a tarball,
+> you'll need to add it first:
+> `git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack`
 
 ---
 
@@ -33,11 +38,11 @@ git push -u origin main
 5. Click **"Deploy site"**
 6. Wait ~1 minute for the first build. Your site is now live at `https://random-name.netlify.app`
 
-### (Optional) Rename your site
-- Go to **Site settings** → **Site name** → Change to something memorable like `myblog.netlify.app`
-
-### (Optional) Custom domain
-- Go to **Domain management** → **Add custom domain** and follow the DNS instructions
+### Custom domain
+- Go to **Domain management** → **Add custom domain**
+- Add a CNAME record in your domain registrar's DNS pointing to your Netlify site
+- Netlify auto-provisions a free SSL certificate
+- Update `baseURL` in `config/_default/hugo.toml` to your domain
 
 ---
 
@@ -59,7 +64,7 @@ This is what lets the blogger log in to the admin panel.
 2. Click **"Invite users"**
 3. Enter the blogger's email address
 4. They'll receive an email with a confirmation link
-5. After confirming, they can log in at `yoursite.netlify.app/admin/`
+5. After confirming, they can log in at `yoursite.com/admin/`
 
 ---
 
@@ -68,11 +73,11 @@ This is what lets the blogger log in to the admin panel.
 Share these instructions with the blogger:
 
 ### Writing a new post
-1. Go to `https://yoursite.netlify.app/admin/`
+1. Go to `https://yoursite.com/admin/`
 2. Log in with your email (or Google if enabled)
 3. Click **"Blog Posts"** in the sidebar
 4. Click **"New Blog Posts"**
-5. Fill in the title, date, description, tags
+5. Fill in the title, date, description, categories, tags
 6. Write your post in the rich text editor (supports bold, italic, headings, images, links)
 7. Set "Draft" to OFF when ready to publish
 8. Click **"Publish"** → **"Publish now"**
@@ -93,23 +98,32 @@ Share these instructions with the blogger:
 
 ```
 my-blog/
-├── archetypes/          # Default front matter templates
+├── config/
+│   └── _default/
+│       ├── hugo.toml        # Main Hugo config (baseURL, title, theme)
+│       ├── params.toml      # Theme parameters (sidebar, widgets, etc.)
+│       ├── menu.toml        # Navigation menus
+│       └── markup.toml      # Markdown rendering settings
 ├── content/
-│   ├── _index.md        # Homepage
-│   └── posts/           # Blog posts (managed by Decap CMS)
+│   ├── _index.md            # Homepage
+│   ├── page/
+│   │   ├── archives/        # Archives page
+│   │   └── search/          # Search page
+│   └── post/                # Blog posts (managed by Decap CMS)
+│       └── welcome/
+│           └── index.md
 ├── layouts/
-│   └── partials/        # Custom template overrides
-│       ├── head-additions.html          # Injects Netlify Identity widget
-│       └── netlify-identity-redirect.html
+│   └── partials/
+│       └── head/
+│           └── custom.html  # Injects Netlify Identity widget
 ├── static/
 │   ├── admin/
-│   │   ├── index.html   # Decap CMS admin page
-│   │   └── config.yml   # CMS configuration (collections, fields)
-│   └── uploads/         # Media uploads from the CMS
+│   │   ├── index.html       # Decap CMS admin page
+│   │   └── config.yml       # CMS configuration (collections, fields)
+│   └── uploads/             # Media uploads from the CMS
 ├── themes/
-│   └── ananke/          # Hugo theme (git submodule)
-├── hugo.toml            # Hugo site configuration
-├── netlify.toml         # Netlify build configuration
+│   └── hugo-theme-stack/    # Stack theme (git submodule)
+├── netlify.toml             # Netlify build config
 └── .gitignore
 ```
 
@@ -117,29 +131,18 @@ my-blog/
 
 ## Customization
 
-### Change the theme
-The current theme is [Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke). To use a different theme:
-1. Remove the ananke submodule: `git submodule deinit themes/ananke && git rm themes/ananke`
-2. Add a new theme: `git submodule add https://github.com/THEME_REPO.git themes/THEME_NAME`
-3. Update `hugo.toml`: change `theme = "ananke"` to your new theme
-4. Check if the new theme uses `head-additions.html` partial — if not, you may need to adjust the Netlify Identity injection
+### Site settings
+Edit `config/_default/hugo.toml` to change the site title, base URL, etc.
+
+### Theme appearance
+Edit `config/_default/params.toml` to customize:
+- Sidebar emoji and subtitle
+- Color scheme (dark/light/auto)
+- Widgets (search, archives, tag cloud)
+- Article settings (reading time, table of contents)
 
 ### Add more CMS fields
-Edit `static/admin/config.yml` to add new fields to posts. See [Decap CMS widgets docs](https://decapcms.org/docs/widgets/) for available field types.
-
-### Add pages (not just posts)
-Add another collection in `static/admin/config.yml`:
-
-```yaml
-  - name: "pages"
-    label: "Pages"
-    folder: "content"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-```
+Edit `static/admin/config.yml` to add new fields. See [Decap CMS widgets docs](https://decapcms.org/docs/widgets/).
 
 ---
 
@@ -155,9 +158,9 @@ Add another collection in `static/admin/config.yml`:
 - Check the Netlify deploy log for build errors
 - Make sure the post's `draft` field is set to `false`
 
-### Images not loading
-- Check that `media_folder` in `config.yml` matches your Hugo static directory
-- Verify the image was uploaded to `static/uploads/`
+### Build fails on Netlify
+- Check that `HUGO_VERSION` in `netlify.toml` is set to `0.155.0` or higher
+- Stack requires Hugo extended edition (Netlify uses extended by default)
 
 ---
 
@@ -167,7 +170,7 @@ Add another collection in `static/admin/config.yml`:
 |---------|-----------|
 | Netlify hosting | 100 GB bandwidth/month, 300 build min/month |
 | Netlify Identity | Up to 5 invited users |
-| GitHub | Unlimited public repos |
+| GitHub | Unlimited private repos |
 | **Total** | **$0/month** for a light blog |
 
 You'd only start paying if you exceed 5 CMS users or get very heavy traffic.
