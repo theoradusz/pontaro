@@ -11,25 +11,28 @@
     --card-background: #FFFFFF;
 
     // Accent colors - vivid sky blue (visible links)
-    --accent-color: #4A90B8;
-    --accent-color-darker: #357A9E;
+    --accent-color: #3D8DB5;
+    --accent-color-darker: #2D7A9E;
 
-    // Heading color - colorful headings
-    --heading-color: #4A8EB5;
+    // Heading colors - gradient of blues for hierarchy
+    --h1-color: #2C6E8A;
+    --h2-color: #3A7FA0;
+    --h3-color: #4A8EB5;
+    --h4-color: #5A9EC5;
 
     // Text colors - stronger contrast for readability
-    --body-text-color: #3D4852;
-    --card-text-color-main: #2D3748;
-    --card-text-color-secondary: #718096;
+    --body-text-color: #374151;
+    --card-text-color-main: #1F2937;
+    --card-text-color-secondary: #6B7280;
 
     // Code & Blockquote - subtle tints
     --blockquote-background-color: #F0F6FA;
     --code-background-color: #F5F8FA;
-    --code-text-color: #4A90B8;
+    --code-text-color: #3D8DB5;
 
     // Borders - soft and understated
-    --table-border-color: #E8EEF2;
-    --card-separator-color: #E8EEF2;
+    --table-border-color: #E5E7EB;
+    --card-separator-color: #E5E7EB;
 
     // Flat design: no shadows
     --shadow-l1: none;
@@ -39,7 +42,7 @@
 }
 
 // =============================================================================
-// TYPOGRAPHY - Bigger & More Readable
+// TYPOGRAPHY - LARGE & Readable
 // =============================================================================
 
 :root {
@@ -49,7 +52,7 @@
     --code-font-family: 'Source Code Pro', Menlo, Monaco, Consolas,
                         'Courier New', monospace;
     --article-font-family: var(--sys-font-family);
-    --base-font-size: 17px;
+    --base-font-size: 21px;
 }
 
 body {
@@ -57,14 +60,7 @@ body {
     font-weight: 400;
     letter-spacing: 0.01em;
     font-size: var(--base-font-size);
-}
-
-// Headings - colorful
-h1, h2, h3, h4, h5, h6,
-.article-title,
-.section-title {
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    line-height: 1.8;
 }
 
 // =============================================================================
@@ -72,20 +68,32 @@ h1, h2, h3, h4, h5, h6,
 // =============================================================================
 
 .sidebar {
+    font-size: 1.15rem;
+
     .site-name {
-        font-size: 1.75rem !important;
+        font-size: 2.5rem !important;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--h1-color);
 
         a {
             color: inherit;
+            text-decoration: none;
         }
     }
 
     .site-description {
         font-weight: 400;
-        font-size: 0.95rem;
+        font-size: 1.25rem;
         color: var(--card-text-color-secondary);
+        margin-top: 0.4rem;
+    }
+
+    .menu {
+        font-size: 1.2rem;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
     }
 }
 
@@ -95,50 +103,55 @@ h1, h2, h3, h4, h5, h6,
 
 .homepage-intro {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2.5rem;
     margin-bottom: 3rem;
     background: var(--card-background);
     border: 1px solid var(--table-border-color);
-    border-radius: 4px;
+    border-radius: 6px;
 
     .greeting {
-        font-size: 2.75rem;
+        font-size: 3.75rem;
         font-weight: 400;
         color: var(--card-text-color-main);
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         line-height: 1.3;
 
         @media (max-width: 768px) {
-            font-size: 2rem;
+            font-size: 2.75rem;
         }
 
         .name {
-            color: var(--heading-color);
-            font-weight: 500;
+            color: var(--h1-color);
+            font-weight: 600;
         }
     }
 
     .description {
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         color: var(--card-text-color-secondary);
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         font-weight: 400;
         line-height: 1.7;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .cta-link {
-        display: inline-block;
-        color: var(--accent-color);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-weight: 500;
-        font-size: 1.05rem;
-        transition: color 0.2s ease;
+}
 
-        &:hover {
-            color: var(--accent-color-darker);
-        }
-    }
+// Homepage link - same style as article content links with gray hover
+.homepage-intro a.cta-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.3rem;
+    box-shadow: 0px -2px 0px rgba(189, 195, 199, 0.5) inset;
+    transition: all 0.3s ease;
+}
+
+.homepage-intro a.cta-link:hover {
+    color: var(--accent-color-darker);
+    box-shadow: 0px -1.3rem 0px rgba(189, 195, 199, 0.7) inset;
 }
 
 // =============================================================================
@@ -149,10 +162,10 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 2rem;
 
     .section-title {
-        font-size: 1.15rem;
+        font-size: 1.6rem;
         font-weight: 500;
-        color: var(--heading-color);
-        margin-bottom: 1.25rem;
+        color: var(--h2-color);
+        margin-bottom: 1.75rem;
         text-transform: lowercase;
         letter-spacing: 0.05em;
     }
@@ -162,7 +175,7 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 0.875rem 0;
+    padding: 1.25rem 0;
     border-bottom: 1px solid var(--table-border-color);
 
     &:first-child {
@@ -173,7 +186,7 @@ h1, h2, h3, h4, h5, h6,
         color: var(--card-text-color-main);
         text-decoration: none;
         font-weight: 400;
-        font-size: 1.05rem;
+        font-size: 1.4rem;
         transition: color 0.2s ease;
 
         &:hover {
@@ -183,9 +196,9 @@ h1, h2, h3, h4, h5, h6,
 
     .post-date {
         color: var(--card-text-color-secondary);
-        font-size: 0.9rem;
+        font-size: 1.15rem;
         white-space: nowrap;
-        margin-left: 1rem;
+        margin-left: 1.5rem;
     }
 }
 
@@ -195,42 +208,81 @@ h1, h2, h3, h4, h5, h6,
 
 .article-content {
     font-weight: 400;
-    line-height: 1.85;
-    font-size: 1.05rem;
+    line-height: 1.95;
+    font-size: 1.3rem;
 
-    // Headings - COLORFUL
-    h1, h2, h3 {
+    // Headings - COLORFUL, NO left border, WITH indent
+    h1, h2, h3, h4, h5, h6 {
+        // Remove the theme's left border
+        border-inline-start: none !important;
+        border-left: none !important;
+        border: none !important;
+        margin-inline-start: 0 !important;
+        padding-inline-start: 0 !important;
+        // Add indent
+        padding-left: 0.75rem;
+    }
+
+    h1 {
+        font-size: 2.85rem;
+        font-weight: 700;
+        color: var(--h1-color);
+        margin-top: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2.35rem;
         font-weight: 600;
+        color: var(--h2-color);
+        margin-top: 3rem;
+        margin-bottom: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.9rem;
+        font-weight: 600;
+        color: var(--h3-color);
         margin-top: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--heading-color);
     }
 
-    h4, h5, h6 {
+    h4 {
+        font-size: 1.6rem;
         font-weight: 500;
+        color: var(--h4-color);
+        margin-top: 2.25rem;
+        margin-bottom: 0.85rem;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--card-text-color-main);
         margin-top: 2rem;
         margin-bottom: 0.75rem;
-        color: var(--card-text-color-main);
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.35rem; }
-    h4 { font-size: 1.15rem; }
-    h5 { font-size: 1.05rem; }
-    h6 { font-size: 1rem; color: var(--card-text-color-secondary); }
+    h6 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--card-text-color-secondary);
+        margin-top: 1.75rem;
+        margin-bottom: 0.65rem;
+    }
 
     // Paragraphs
     p {
-        margin-bottom: 1.35rem;
+        margin-bottom: 1.75rem;
     }
 
-    // Links - VISIBLE with underline
+    // Links - BRIGHT and VISIBLE with underline
     a {
         color: var(--accent-color);
         text-decoration: underline;
-        text-underline-offset: 2px;
-        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+        font-weight: 500;
         transition: color 0.2s ease;
 
         &:hover {
@@ -238,16 +290,29 @@ h1, h2, h3, h4, h5, h6,
         }
     }
 
-    // Blockquotes - TOP ACCENT instead of left border
+    // Blockquotes - colored background, no left border
     blockquote {
         background: var(--blockquote-background-color);
-        border-left: none;
-        border-top: 3px solid var(--accent-color);
-        padding: 1.25rem 1.5rem;
-        margin: 1.75rem 0;
-        border-radius: 0 0 4px 4px;
+        border: none;
+        border-radius: 6px;
+        padding: 1.75rem 2rem;
+        margin: 2.25rem 0;
         font-style: italic;
+        font-size: 1.25rem;
         color: var(--card-text-color-main);
+        position: relative;
+
+        &::before {
+            content: '"';
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
 
         p:last-child {
             margin-bottom: 0;
@@ -257,7 +322,7 @@ h1, h2, h3, h4, h5, h6,
         blockquote {
             margin-top: 1rem;
             margin-bottom: 0;
-            border-top-color: var(--accent-color-darker);
+            background: rgba(0,0,0,0.03);
         }
     }
 
@@ -265,8 +330,8 @@ h1, h2, h3, h4, h5, h6,
     code:not([class*="language-"]) {
         background: var(--code-background-color);
         color: var(--code-text-color);
-        padding: 0.2em 0.45em;
-        border-radius: 3px;
+        padding: 0.3em 0.55em;
+        border-radius: 4px;
         font-family: var(--code-font-family);
         font-size: 0.9em;
         font-weight: 500;
@@ -276,16 +341,16 @@ h1, h2, h3, h4, h5, h6,
     pre {
         background: var(--code-background-color);
         border: 1px solid var(--table-border-color);
-        border-radius: 4px;
-        padding: 1.25rem;
+        border-radius: 6px;
+        padding: 1.75rem;
         overflow-x: auto;
-        margin: 1.75rem 0;
+        margin: 2.25rem 0;
 
         code {
             background: none;
             color: var(--card-text-color-main);
             padding: 0;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             font-weight: 400;
         }
     }
@@ -294,18 +359,18 @@ h1, h2, h3, h4, h5, h6,
     table {
         width: 100%;
         border-collapse: collapse;
-        margin: 1.75rem 0;
-        font-size: 0.95rem;
+        margin: 2.25rem 0;
+        font-size: 1.2rem;
 
         th, td {
-            padding: 0.85rem 1rem;
+            padding: 1.15rem 1.4rem;
             border: 1px solid var(--table-border-color);
             text-align: left;
         }
 
         th {
             background: var(--code-background-color);
-            font-weight: 500;
+            font-weight: 600;
             color: var(--card-text-color-main);
         }
 
@@ -316,35 +381,36 @@ h1, h2, h3, h4, h5, h6,
 
     // Lists
     ul, ol {
-        margin: 1.25rem 0;
-        padding-left: 1.75rem;
+        margin: 1.75rem 0;
+        padding-left: 2.25rem;
 
         li {
-            margin-bottom: 0.6rem;
-            line-height: 1.7;
+            margin-bottom: 0.85rem;
+            line-height: 1.8;
 
             &::marker {
                 color: var(--accent-color);
+                font-weight: 600;
             }
         }
     }
 
     // Nested lists
     ul ul, ol ol, ul ol, ol ul {
-        margin-top: 0.5rem;
+        margin-top: 0.6rem;
         margin-bottom: 0;
     }
 
     // Horizontal rules
     hr {
         border: none;
-        border-top: 1px solid var(--table-border-color);
-        margin: 2.5rem 0;
+        border-top: 2px solid var(--table-border-color);
+        margin: 3.5rem 0;
     }
 
     // Images - flat, no shadow
     img {
-        border-radius: 4px;
+        border-radius: 6px;
         border: 1px solid var(--table-border-color);
     }
 
@@ -365,9 +431,47 @@ h1, h2, h3, h4, h5, h6,
 }
 
 // =============================================================================
-// TABLE OF CONTENTS - Clean, No Bullets
+// TABLE OF CONTENTS - Clean style matching categories widget
 // =============================================================================
 
+// TOC widget container
+.toc-widget,
+.widget.archives:has(.widget--toc) {
+    // Remove border
+    border: none !important;
+    background: transparent;
+    padding: 0 !important;
+
+    // Hide the old separate icon
+    > .widget-icon {
+        display: none;
+    }
+
+    // Title with inline icon (matching categories)
+    .widget-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--h2-color);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+
+        .widget-icon-inline {
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                width: 26px;
+                height: 26px;
+                color: var(--h2-color);
+                stroke-width: 1.8;
+            }
+        }
+    }
+}
+
+// TOC content styling
 .widget--toc {
     nav#TableOfContents {
         ul {
@@ -376,13 +480,13 @@ h1, h2, h3, h4, h5, h6,
             margin: 0;
 
             li {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.75rem;
                 padding-left: 0;
 
                 a {
                     color: var(--card-text-color-main);
                     text-decoration: none;
-                    font-size: 0.9rem;
+                    font-size: 1.15rem;
                     transition: color 0.2s ease;
 
                     &:hover {
@@ -392,14 +496,14 @@ h1, h2, h3, h4, h5, h6,
 
                 // Nested levels - indented but no bullets
                 ul {
-                    margin-top: 0.4rem;
-                    padding-left: 1rem !important;
+                    margin-top: 0.6rem;
+                    padding-left: 1.35rem !important;
 
                     li {
-                        margin-bottom: 0.35rem;
+                        margin-bottom: 0.5rem;
 
                         a {
-                            font-size: 0.85rem;
+                            font-size: 1.05rem;
                             color: var(--card-text-color-secondary);
                         }
                     }
@@ -411,21 +515,92 @@ h1, h2, h3, h4, h5, h6,
 
 // Widget styling
 .widget {
-    &--categories,
-    &--tag-cloud {
-        .widget-title {
+    .widget-title {
+        font-weight: 600;
+        color: var(--h2-color);
+        font-size: 1.4rem;
+    }
+
+    font-size: 1.2rem;
+}
+
+// Categories widget - improved styling
+.widget.tagCloud,
+.categories-widget {
+    // Remove border
+    border: none !important;
+    background: transparent;
+    padding: 0 !important;
+
+    // Hide the old separate icon
+    > .widget-icon {
+        display: none;
+    }
+
+    // Title with inline icon
+    .widget-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--h2-color);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+
+        .widget-icon-inline {
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                width: 26px;
+                height: 26px;
+                color: var(--h2-color);
+                stroke-width: 1.8;
+            }
+        }
+    }
+
+    // Category tags - colors from inline styles (same as blog posts)
+    .tagCloud-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        a {
+            padding: 0.55rem 1.1rem;
+            border-radius: 5px;
+            font-size: 1.15rem;
             font-weight: 500;
-            color: var(--heading-color);
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            box-shadow: none !important;
+
+            &:hover {
+                opacity: 0.8;
+                transform: translateY(-1px);
+            }
         }
     }
 }
 
 // =============================================================================
-// HIDE FOOTER ATTRIBUTION
+// FOOTER STYLING - Clean, No Black Bar
 // =============================================================================
 
-.site-footer .powerby {
-    display: none !important;
+footer.site-footer {
+    // Remove the black bar before footer
+    &::before {
+        display: none !important;
+    }
+
+    .powerby {
+        display: none !important;
+    }
+
+    .copyright {
+        color: var(--card-text-color-secondary);
+        font-size: 1.15rem;
+    }
 }
 
 // =============================================================================
@@ -435,7 +610,7 @@ h1, h2, h3, h4, h5, h6,
 .blog-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.25rem;
 
     @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
@@ -472,18 +647,18 @@ h1, h2, h3, h4, h5, h6,
         align-items: center;
         justify-content: center;
         color: var(--accent-color);
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     &__content {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     &__title {
-        font-size: 1.25rem;
-        font-weight: 500;
+        font-size: 1.65rem;
+        font-weight: 600;
         color: var(--card-text-color-main);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         transition: color 0.2s ease;
         line-height: 1.4;
 
@@ -494,33 +669,31 @@ h1, h2, h3, h4, h5, h6,
     }
 
     &__meta {
-        font-size: 0.875rem;
+        font-size: 1.15rem;
         color: var(--card-text-color-secondary);
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem;
     }
 
     &__description {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         color: var(--card-text-color-secondary);
-        line-height: 1.6;
+        line-height: 1.7;
     }
 }
 
 // Section header for blog list
 .blog-section-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 2.75rem;
 
     .blog-section-title {
-        font-size: 2rem;
-        font-weight: 500;
-        color: var(--heading-color);
-        margin-bottom: 0.5rem;
+        font-size: 2.85rem;
+        font-weight: 600;
+        color: var(--h1-color);
+        margin-bottom: 0.6rem;
     }
 
     .blog-section-count {
-        font-size: 0.95rem;
+        font-size: 1.25rem;
         color: var(--card-text-color-secondary);
     }
 }
@@ -532,8 +705,9 @@ h1, h2, h3, h4, h5, h6,
 .article-list {
     article {
         .article-title {
-            font-weight: 500;
+            font-weight: 600;
             color: var(--card-text-color-main);
+            font-size: 1.5rem;
 
             &:hover {
                 color: var(--accent-color);
@@ -542,23 +716,33 @@ h1, h2, h3, h4, h5, h6,
 
         .article-subtitle {
             font-weight: 400;
+            font-size: 1.25rem;
         }
     }
 }
 
 // Remove any card shadows from theme
 .article-list--tile article,
-.widget,
 .card-widget {
     box-shadow: none !important;
     border: 1px solid var(--table-border-color);
-    border-radius: 4px;
+    border-radius: 6px;
+}
+
+// Widgets - no border for categories
+.widget {
+    box-shadow: none !important;
+
+    &:not(.tagCloud) {
+        border: 1px solid var(--table-border-color);
+        border-radius: 6px;
+    }
 }
 
 // Article list compact (theme default) styling
 .article-list--compact {
     article {
-        padding: 1rem 0;
+        padding: 1.4rem 0;
         border-bottom: 1px solid var(--table-border-color);
 
         &:first-child {
@@ -566,7 +750,7 @@ h1, h2, h3, h4, h5, h6,
         }
 
         .article-title {
-            font-size: 1.1rem;
+            font-size: 1.45rem;
         }
     }
 }
@@ -576,15 +760,19 @@ h1, h2, h3, h4, h5, h6,
 // =============================================================================
 
 @media (max-width: 768px) {
+    body {
+        font-size: 19px;
+    }
+
     .homepage-intro {
-        padding: 3rem 1.5rem;
+        padding: 3.5rem 1.75rem;
 
         .greeting {
-            font-size: 1.75rem;
+            font-size: 2.5rem;
         }
 
         .description {
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
     }
 
@@ -593,15 +781,28 @@ h1, h2, h3, h4, h5, h6,
 
         .post-date {
             margin-left: 0;
-            margin-top: 0.25rem;
+            margin-top: 0.4rem;
+        }
+
+        .post-title {
+            font-size: 1.25rem;
         }
     }
 
     .blog-card__content {
-        padding: 1.25rem;
+        padding: 1.75rem;
     }
 
     .blog-card__title {
-        font-size: 1.1rem;
+        font-size: 1.45rem;
+    }
+
+    .article-content {
+        font-size: 1.2rem;
+
+        h1 { font-size: 2.25rem; }
+        h2 { font-size: 1.85rem; }
+        h3 { font-size: 1.55rem; }
+        h4 { font-size: 1.35rem; }
     }
 }

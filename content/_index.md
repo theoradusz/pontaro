@@ -1,4 +1,4 @@
 ---
-title: "Home"
+title: "Pon"
 description: "Welcome to my blog"
 ---
