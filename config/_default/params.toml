@@ -10,7 +10,7 @@ lastUpdated = ":date_full"
 
 [sidebar]
 emoji = ""
-subtitle = "thoughts & music"
+subtitle = "my thoughts and my favorite things"
 
 [article]
 headingAnchor = false
@@ -21,9 +21,7 @@ readingTime = true
 enabled = false
 
 [widgets]
-homepage = [
-    { type = "categories", params = { limit = 10 } },
-]
+homepage = [{ type = "categories", params = { limit = 10 } }]
 page = [{ type = "toc" }]
 
 [colorScheme]
