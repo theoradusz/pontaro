@@ -1,4 +1,4 @@
-mainSections = ["blog"]
+mainSections = ["post"]
 rssFullContent = true
 
 [footer]

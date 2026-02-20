@@ -8,9 +8,9 @@
         newTab = false
 
 [[main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/blog/"
+    identifier = "post"
+    name       = "Posts"
+    url        = "/post/"
     weight     = 2
     [main.params]
         icon = "archives"

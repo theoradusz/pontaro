@@ -9,13 +9,13 @@
     <p class="description">
         ただ好きなもの、可愛いと思うものをのんびり記録、シェアしてます。旅行、ヴィンテージ、アンティーク、音楽、自然、おやつが大好きなぽんです。宜しくお願いします。
     </p>
-    <a href="/blog/" class="cta-link">see posts</a>
+    <a href="/post/" class="cta-link">see posts</a>
 </section>
 
 <!-- Recent Posts Section -->
 <section class="recent-posts-section">
     <h2 class="section-title">recent posts</h2>
-    {{ $pages := where .Site.RegularPages "Section" "blog" }}
+    {{ $pages := where .Site.RegularPages "Section" "post" }}
     {{ range first 5 $pages }}
     <div class="recent-post-item">
         <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
