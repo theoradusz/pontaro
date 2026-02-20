@@ -3,7 +3,9 @@ title: Fudge
 date: 2026-02-20
 description: Inspired by Harry Potter..
 categories:
-  - "#sweets"
+  - sweets
+tags:
+  - "#antique"
 image: /uploads/img_6260.jpg
 draft: false
 ---
