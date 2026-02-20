@@ -5,7 +5,7 @@ description: Inspired by Harry Potter..
 categories:
   - sweets
 tags:
-  - "#antique"
+  - antique
 image: /uploads/img_6260.jpg
 draft: false
 ---
