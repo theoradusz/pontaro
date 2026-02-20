@@ -20,6 +20,14 @@
                              loading="lazy"
                              alt="{{ .Title }}">
                     </a>
+                {{ else if .Params.image }}
+                    <!-- Fallback for static file images (e.g., /uploads/...) -->
+                    <a href="{{ .RelPermalink }}">
+                        <img class="blog-card__image"
+                             src="{{ .Params.image }}"
+                             loading="lazy"
+                             alt="{{ .Title }}">
+                    </a>
                 {{ else }}
                     <a href="{{ .RelPermalink }}">
                         <div class="blog-card__image-placeholder">
