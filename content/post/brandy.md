@@ -70,5 +70,5 @@ This plum brandy is sweet so it's easy to drink even for people who don't like a
 
 On the rock or with soda
 
-![Brandy](/uploads/brandy/brandy.jpg)
-![Jar](/uploads/brandy/jar.jpg)
+![Brandy](/uploads/brandy/brandy.JPG)
+![Jar](/uploads/brandy/jar.JPG)
