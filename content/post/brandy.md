@@ -1,6 +1,6 @@
 ---
 title: 自家製梅ブランデー　Home-made Japanese plum brandy
-date: 2026-02-20
+date: 2026-05-31
 description: My favorite recipe
 categories:
   - drinks
