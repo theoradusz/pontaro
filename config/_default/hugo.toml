@@ -10,5 +10,5 @@ hasCJKLanguage         = true
     pagerSize = 5
 
 [permalinks]
-    post = "/p/:slug/"
+    post = "/p/:contentbasename/"
     page = "/:slug/"
